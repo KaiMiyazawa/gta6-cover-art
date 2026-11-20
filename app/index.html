@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Vice Cover Studio</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo">NEON VICE</span><span class="tag">Cover Studio</span></div>
+  <p class="hint">Your photos plus a caption become a multi-panel cover. Everything stays on your machine.</p>
+</header>
+<main class="studio">
+  <section class="controls" aria-label="Cover controls">
+    <h2>1 &middot; Photos</h2>
+    <label class="file-btn">Add photos from your device
+      <input id="photos" type="file" accept="image/*" multiple>
+    </label>
+    <div id="samples" class="samples" aria-label="Sample photos"></div>
+
+    <h2>2 &middot; Layout &amp; size</h2>
+    <div class="row" id="layouts" role="group" aria-label="Panel layout"></div>
+    <div class="row" id="sizes" role="group" aria-label="Export size"></div>
+
+    <h2>3 &middot; Caption</h2>
+    <label>Caption
+      <input id="caption" type="text" maxlength="28" value="NEON NIGHTS">
+    </label>
+    <label>Sub-caption
+      <input id="subcaption" type="text" maxlength="34" value="VICE CITY">
+    </label>
+    <label>Caption position
+      <select id="captionPos">
+        <option value="bottom">Bottom</option>
+        <option value="top">Top</option>
+      </select>
+    </label>
+    <label>Sunset grade
+      <input id="grade" type="range" min="0" max="1" step="0.05" value="0.75">
+    </label>
+
+    <h2>4 &middot; Selected panel</h2>
+    <p id="panelInfo" class="panel-info">No panel selected yet.</p>
+    <label>Photo in this panel
+      <select id="panelPhoto"></select>
+    </label>
+    <label>Zoom
+      <input id="panelZoom" type="range" min="1" max="3" step="0.05" value="1">
+    </label>
+    <div class="row">
+      <button id="centerPanel" type="button">Center photo</button>
+      <button id="clearPanel" type="button">Clear panel</button>
+    </div>
+
+    <h2>5 &middot; Export</h2>
+    <button id="export" type="button" class="export-btn">Export PNG</button>
+    <p id="status" role="status"></p>
+  </section>
+  <section class="preview" aria-label="Cover preview">
+    <canvas id="cover" width="1080" height="1080"></canvas>
+    <p class="preview-hint">Click a panel to select it &middot; drag to move its photo &middot; scroll to zoom</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
